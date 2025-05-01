@@ -1,0 +1,11 @@
+#requirements.txt
+
+fastapi
+uvicorn 
+sqlalchemy 
+pydantic 
+passlib 
+python-jose
+
+Run the app using:
+    uvicorn app.main:app --reload

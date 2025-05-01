@@ -16,7 +16,7 @@ class Task(TaskBase):
         orm_mode = True
 
 class UserCreate(BaseModel):
-    usename: str
+    username: str
     password: str
 
 class user(BaseModel):
