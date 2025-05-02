@@ -5,7 +5,6 @@ from typing import Optional
 class TaskBase(BaseModel):
     title: str
     description: str
-    completed: bool=False
 
 class TaskCreate(TaskBase):
     pass
@@ -29,5 +28,3 @@ class User(BaseModel):
 class TaskUpdate(BaseModel):
     title: str
     description: str
-    due_date: date
-    completed: bool

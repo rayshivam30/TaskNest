@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app import schemas, crud
 from app.database import SessionLocal
 from app.auth.routes import get_current_user, get_db
-from app.models import User
+from app.models import Task, User
 
 router = APIRouter()
 
@@ -20,22 +20,30 @@ def create_task(task: schemas.TaskCreate,
 
 @router.put("/{task_id}")
 def update_task(
-    task_id: int,  # Non-default argument first
-    task: schemas.TaskUpdate,  # Pydantic model argument for JSON body
-    db: Session = Depends(get_db),  # Default arguments can come after
+    task_id: int,
+    task: schemas.TaskUpdate,
+    db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    # Fetch the existing task
     db_task = crud.get_task_by_id(db, task_id)
     if db_task is None or db_task.owner_id != current_user.id:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    # Update the task fields with the data from the body
     db_task.title = task.title
     db_task.description = task.description
-    db_task.due_date = task.due_date
-    db_task.completed = task.completed
 
     db.commit()
+    db.refresh(db_task)
     return db_task
 
+
+@router.delete("/{task_id}")
+def delete_task(task_id: int,
+                db: Session = Depends(get_db),
+                current_user: User = Depends(get_current_user)):
+    db_task = crud.get_task_by_id(db, task_id)
+    if db_task is None or db_task.owner_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Task not found")
+    
+    crud.delete_task(db, db_task)
+    return {"message": "Task deleted successfully"}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - TaskNest</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TaskNest</div>
+    <button id="logout-btn">Logout</button>
+  </nav>
+
+  <main class="dashboard">
+    <h2>Your Tasks</h2>
+    <form id="task-form" class="task-form">
+      <input type="text" id="title" placeholder="Task Title" required />
+      <textarea id="description" placeholder="Description..."></textarea>
+      <button type="submit">Add Task</button>
+    </form>
+
+    <div id="task-list" class="task-list"></div>
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

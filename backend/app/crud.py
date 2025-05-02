@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from sqlalchemy.orm import Session 
 from app import models, schemas 
 from passlib.context import CryptContext
@@ -28,10 +29,15 @@ def get_tasks(db: Session, user_id: int):
 def get_task_by_id(db: Session, task_id: int):
     return db.query(models.Task).filter(models.Task.id == task_id).first()
 
-def update_task(db: Session, db_task: models.Task, task_update: schemas.TaskCreate):
+def update_task(db: Session, db_task: models.Task, task_update: schemas.TaskUpdate):
     db_task.title = task_update.title
     db_task.description = task_update.description
+    db_task.due_date = task_update.due_date
     db_task.completed = task_update.completed
     db.commit()
     db.refresh(db_task)
     return db_task
+
+def delete_task(db: Session, db_task: models.Task):
+    db.delete(db_task)
+    db.commit()
