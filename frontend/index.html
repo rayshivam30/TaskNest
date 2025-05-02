@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskNest</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskNest - Home</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<body class="home-page">
     <div class="container">
-        <h1>TaskNest</h1>
-        <form id="task-form">
-            <input type="text" id="title" placeholder="Task Title" required/>
-            <textarea id="description" placeholder="Task description"></textarea>
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="task-list"></ul>
+        <h1>Welcome to <span>TaskNest</span></h1>
+        <p>Your personal task management companion</p>
+        <div class="buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn secondary">Sign Up</a>
+        </div>
     </div>
-    <script src="app.js"></script>
 </body>
+
 </html>
