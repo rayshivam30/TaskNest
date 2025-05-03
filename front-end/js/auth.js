@@ -40,11 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value.trim();
+      const email = document.getElementById("email").value.trim();
 
       const res = await fetch(`${API_BASE}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, email}),
       });
 
       if (res.ok) {

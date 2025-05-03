@@ -59,7 +59,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return created_user
 
 @router.post("/login") 
-def login(user: schemas.UserCreate, db: Session = Depends(get_db)): 
+def login(user: schemas.UserLogin, db: Session = Depends(get_db)): 
     db_user = crud.get_user_by_username(db, user.username) 
     if not db_user or not pwd_context.verify(user.password, db_user.hashed_password): 
         raise HTTPException(status_code=400, detail="Incorrect username or password") 

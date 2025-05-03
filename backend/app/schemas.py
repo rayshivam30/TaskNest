@@ -1,5 +1,5 @@
 from datetime import date
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Optional
 
 class TaskBase(BaseModel):
@@ -16,11 +16,17 @@ class Task(TaskBase):
         orm_mode = True
 
 class UserCreate(BaseModel):
+    email: EmailStr
+    username: str
+    password: str
+
+class UserLogin(BaseModel):
     username: str
     password: str
 
 class User(BaseModel):
     id : int
+    email : EmailStr
     username : str
     class Config:
         orm_mode = True
