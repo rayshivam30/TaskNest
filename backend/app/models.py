@@ -1,9 +1,10 @@
 from pydantic import EmailStr
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Date, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 from sqlalchemy import Enum
 import enum
+from app.schemas import PriorityEnum
 
 class User(Base):
     __tablename__ = "users"
@@ -20,6 +21,7 @@ class Task(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(String)
-    completed = Column(Boolean, default=False)
+    priority = Column(String, default="Low")
+    due_date = Column(Date, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
     owner = relationship("User", back_populates="tasks")

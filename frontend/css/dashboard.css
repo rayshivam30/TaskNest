@@ -1,0 +1,356 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* === Layout === */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* === Sidebar === */
+.sidebar {
+    width: 240px;
+    background-color: #1e293b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+}
+
+.sidebar-header h2 {
+    font-size: 22px;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-menu li {
+    padding: 0.75rem;
+    background-color: #334155;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-menu li:hover {
+    background-color: #475569;
+}
+
+.sidebar-menu li.active {
+    background-color: #475569;
+    font-weight: bold;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #334155;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    background-color: #cbd5e1;
+    color: #1e293b;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.avatar.small {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.username {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* === Main Content === */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f8fafc;
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#search {
+    padding: 0.5rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    width: 300px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#search:focus {
+    border-color: #3b82f6;
+}
+
+#settings {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1e293b;
+}
+
+/* === Add Task Button ===
+.add-task-btn {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-task-btn:hover {
+    background-color: #2563eb;
+} */
+
+/* === Task List === */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.task-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #cbd5e1;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+
+.task-item:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.titleoftask {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.descriptionoftask {
+    margin-top: 6px;
+    font-size: 15px;
+    color: #475569;
+}
+
+.task-meta {
+    font-size: 14px;
+    color: #64748b;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.task-meta span {
+    white-space: nowrap;
+}
+
+/* === Priority Colors === */
+.priority-High {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.priority-Medium {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.priority-Low {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.priority-Completed {
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* === Logout Button === */
+#Logout {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    height: 35px;
+    margin-top: 14px;
+    padding: 0.5rem 1rem;
+    padding-bottom: 30px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+#Logout:hover {
+    background-color: #2563eb;
+}
+
+/* Add Task Button */
+button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #4338ca;
+    }
+
+    /* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+    animation: fadeIn 0.3s ease-in-out;
+    }
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #ffffff;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease-out;
+    }
+
+    /* Close Button */
+.close {
+    color: #999;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    }
+
+.close:hover {
+    color: #333;
+    }
+
+    /* Form Input Styles */
+.modal-content input[type="text"],
+    .modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    }
+
+.modal-content input:focus,
+    .modal-content select:focus {
+    border-color: #4f46e5;
+    outline: none;
+    }
+
+    /* Submit Button */
+.modal-content button {
+    width: 100%;
+    background-color: #10b981;
+    font-weight: bold;
+    }
+
+.modal-content button:hover {
+    background-color: #059669;
+    }
+
+    /* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+    }
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    }
+

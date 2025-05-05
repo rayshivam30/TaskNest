@@ -1,23 +1,14 @@
-// js/auth.js
 const API_BASE = "http://localhost:8000";
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("login-form");
   const signupForm = document.getElementById("signup-form");
-  const homepage = document.getElementById("home-page");
-
-  if (homepage){
-    homepage.addEventListener("click", async (e) => {
-      e.preventDefault();
-      window.location.href = "index.html";
-    })
-  }
 
   if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const username = document.querySelector("#username").value.trim();
+      const password = document.querySelector("#password").value.trim();
 
       const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
@@ -38,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (signupForm) {
     signupForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const username = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
       const res = await fetch(`${API_BASE}/auth/signup`, {
         method: "POST",

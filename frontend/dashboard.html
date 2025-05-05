@@ -1,22 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>Dashboard - TaskNest</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskNest Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
 </head>
-
 <body>
-    <div class="form-container">
-        <h2>Your Task Dashboard</h2>
-        <form id="taskForm">
-            <input type="text" id="taskInput" placeholder="Enter a task..." required />
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="taskList"></ul>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>TaskNest</h2>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li class="active"><span>📋</span> Tasks</li>
+        </ul>
+      </div>
+      <div class="sidebar-footer profile">
+        <div id="user-avatar" class="avatar">U</div>
+        <div id="username" class="username"></div>
+      </div>
     </div>
-    <script src="main.js"></script>
-</body>
 
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <div class="actions">
+          <input type="text" id="search" placeholder="Search tasks..." />
+          <button id="Logout">Logout</button>
+        </div>
+      </div>
+
+      <button onclick="openForm()" id="add-task-btn" class="add-task-btn">+ Add Task</button>
+
+        <div id="taskModal" style="display:none;" class="modal">
+            <div class="modal-content">
+                <span onclick="closeForm()" class="close">&times;</span>
+                <h2>Add New Task</h2>
+                <input type="text" id="taskInput" placeholder="Enter task title:" />
+                <input type="text" id="taskdescriptionInput" placeholder="Enter task description (optional):">
+                <label for="priority">Select Priority of Task:</label>
+                <select id="priority" name="Priority">
+                    <option value=""></option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <input type="text" id="task_due_date" placeholder="Enter tasks due_date:">
+                <button onclick="addTask()">Submit</button>
+            </div>
+        </div>
+
+      <div class="task-list" id="task-list">
+        <!-- Tasks will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
 </html>

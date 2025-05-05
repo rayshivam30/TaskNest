@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException 
+from typing import Optional
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session 
 from app import schemas, models, crud 
 from app.database import SessionLocal 
@@ -22,9 +23,9 @@ def get_db():
     finally: 
         db.close()
 
-def create_access_token(data: dict, expires_delta: timedelta): 
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None): 
     to_encode = data.copy() 
-    expire = datetime.utcnow() + expires_delta 
+    expire = datetime.utcnow() + (expires_delta or timedelta(minutes=15))
     to_encode.update({"exp": expire}) 
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
@@ -68,3 +69,7 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
         expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES) 
         ) 
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.get("/me")
+def get_logged_in_user(current_user: models.User = Depends(get_current_user)):
+    return {"username": current_user.username}

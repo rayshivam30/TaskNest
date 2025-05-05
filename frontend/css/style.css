@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f7fa;
+  }
+  
+  body {
+    background: #f3f4f6;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1{
+    color: #2b2d42;
+  }
+  
+  .logout {
+    background: #ef233c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  #task-form input,
+  #task-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: none;
+  }
+  
+  #task-form button {
+  align-self: flex-start;
+  background-color: #06d6a0;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  
+  #task-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #task-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  #task-card:hover{
+    transform: translateY(-3px);
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  }
+  
+  .auth-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .auth-card h2 {
+    margin-bottom: 20px;
+    color: #111827;
+  }
+  
+  .auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .auth-card input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .auth-card button {
+    background: #10b981;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .auth-card p {
+    font-size: 14px;
+  }
+  
+  .auth-card a {
+    color: #10b981;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #d1fae5, #a7f3d0);
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    align-items: center;
+  }
+  
+  .navbar h1 {
+    font-size: 24px;
+    color: #111827;
+  }
+  
+  .nav-btn {
+    margin-left: 10px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: #10b981;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .home-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .home-main h2 {
+    font-size: 32px;
+    color: #065f46;
+    margin-bottom: 20px;
+  }
+  
+  .home-main p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+  
+  .primary-btn {
+    padding: 12px 24px;
+    background-color: #10b981;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .task-task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .edit-btn{
+    margin-right: 40px;
+    cursor: pointer;
+  }
+
+  .delete-btn{
+    cursor: pointer;
+  }

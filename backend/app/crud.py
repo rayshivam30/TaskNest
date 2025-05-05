@@ -33,7 +33,7 @@ def update_task(db: Session, db_task: models.Task, task_update: schemas.TaskUpda
     db_task.title = task_update.title
     db_task.description = task_update.description
     db_task.due_date = task_update.due_date
-    db_task.completed = task_update.completed
+    db_task.priority = task_update.priority
     db.commit()
     db.refresh(db_task)
     return db_task

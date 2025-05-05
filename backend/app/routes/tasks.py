@@ -1,4 +1,5 @@
-from fastapi import Depends, APIRouter, HTTPException, Path, Query
+from typing import List
+from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from app import schemas, crud
 from app.database import SessionLocal
@@ -10,7 +11,8 @@ router = APIRouter()
 @router.get("/")
 def read_tasks(db: Session = Depends(get_db), 
                current_user: User = Depends(get_current_user)):
-    return crud.get_tasks(db, user_id=current_user.id)
+    tasks = crud.get_tasks(db, user_id=current_user.id)
+    return tasks
 
 @router.post("/")
 def create_task(task: schemas.TaskCreate, 
@@ -31,6 +33,8 @@ def update_task(
 
     db_task.title = task.title
     db_task.description = task.description
+    db_task.priority = task.priority
+    db_task.due_date = task.due_date
 
     db.commit()
     db.refresh(db_task)
@@ -47,3 +51,8 @@ def delete_task(task_id: int,
     
     crud.delete_task(db, db_task)
     return {"message": "Task deleted successfully"}
+
+@router.get("/users", response_model=List[schemas.UserOut])
+def get_all_users(db: Session = Depends(get_db)):
+    users = db.query(User).all()
+    return users
